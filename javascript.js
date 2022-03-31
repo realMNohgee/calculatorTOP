@@ -17,7 +17,9 @@ function clear() {
     this.operation = undefined;
 }
 
- function delete() {}
+delete() {
+    this.currentOperand = this.currentOperand.toString().slice(0, -1)
+}
 
 percentage(numbers, percent) {
     return (numbers/100) * percent;
@@ -99,6 +101,16 @@ equalsButton.addEventListener('click', button => {
     calculator.compute()
     calculator.updatedDisplay()
 })   
+
+allClearButton.addEventListener('click', button => {
+    calculator.clear()
+    calculator.updateDisplay()
+  })
+
+  deleteButton.addEventListener('click', button => {
+    calculator.delete()
+    calculator.updateDisplay()
+  })  
 
 
 
